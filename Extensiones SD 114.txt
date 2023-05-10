@@ -1,0 +1,27 @@
+
+!git clone https://github.com/nolanaatama/sd-webui-tunnels /content/sd-webui/extensions/sd-webui-tunnels #interface
+!git clone https://github.com/Mikubill/sd-webui-controlnet /content/sd-webui/extensions/sd-webui-controlnet #Controlnet 
+!git clone https://github.com/hnmr293/posex /content/sd-webui/extensions/posex #Posex
+!git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete /content/sd-webui/extensions/a1111-sd-webui-tagcomplete #Autorellenar
+!git clone https://github.com/hako-mikan/sd-webui-supermerger /content/sd-webui/extensions/sd-webui-supermerger #Mesclador de Models
+!git clone https://github.com/civitai/sd_civitai_extension /content/sd-webui/extensions/sd_civitai_extension #Civitai Extension
+!git clone https://github.com/sigmalpike/Locon-ext /content/sd-webui/extensions/Locon-ext #Cargador de Lycoris
+!git clone https://github.com/sigmalpike/SD-CN-Animation /content/sd-webui/extensions/SD-CN #aNICOM
+!git clone https://github.com/sigmalpike/sd-pixel /content/sd-webui/extensions/sd-pixel #Pixel
+!git clone https://github.com/sigmalpike/PBRemTools /content/sd-webui/extensions/PBRemtools #Background remover
+!git clone https://github.com/sigmalpike/stable-diffusion-NPW /content/sd-webui/extensions/stable-diffusion-NPW #Negative promt
+!git clone https://github.com/sigmalpike/Abysz-LAB-Ext /content/sd-webui/extensions/Abysz-LAB-Ext #Negative promt
+!git clone https://github.com/sigmalpike/prompt_translator /content/sd-webui/extensions/prompt_translator #Translator
+!git clone https://github.com/sigmalpike/stable-diffusion-webui-randomize /content/sd-webui/extensions/stable-diffusion-webui-randomize #ramdom Prompt
+!git clone https://github.com/sigmalpike/sd_smartprocess /content/sd-webui/extensions/sd_smartprocess #smart process
+!git clone https://github.com/sigmalpike/HCP-Diffusion /content/sd-webui/extensions/HCP-Diffusion #Lora Train 
+!git clone https://github.com/Maurdekye/training-picker /content/sd-webui/extensions/training-picker #Training imagen
+!git clone https://github.com/sigmalpike/sd-webui-deforum /content/sd-webui/extensions/sd-webui-deforum #Deforum
+!git clone https://github.com/sigmalpike/animator_extension /content/sd-webui/extensions/animator_extension #Animaciones img x img
+!git clone https://github.com/sigmalpike/stable-diffusion-webui-sonar /content/sd-webui/extensions/stable-diffusion-webui-sonar #Compilador de Prompt
+!git clone https://github.com/sigmalpike/a1111-sd-webui-haku-img /content/sd-webui/extensions/a1111-sd-webui-haku-img #Editor de imagen
+!git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-promptgen /content/sd-webui/extensions/promptgen #Generador de Promtp
+!git clone https://github.com/sigmalpike/stable-diffusion-webui-pixelization /content/sd-webui/extensions/pixelization #Generador de Promtp
+!git clone https://github.com/sigmalpike/gif2gif /content/sd-webui/extensions/gif2gif #gif 2 gif
+!git clone https://github.com/pharmapsychotic/clip-interrogator-ext /content/sd-webui/extensions/clip-interrogator-ext #img to promp
+!git clone https://github.com/sigmalpike/ebsynth_utility /content/sd-webui/extensions/ebsynth_utility  #Generador de Video vid2vid

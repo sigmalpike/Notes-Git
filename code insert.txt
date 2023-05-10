@@ -1,0 +1,38 @@
+from google.colab import drive
+drive.mount('/content/drive')
+!nvidia-smi -L!apt install -qq libunwind8-dev
+!dpkg -i *.deb
+%env LD_PRELOAD=libtcmalloc.so
+!rm *
+!pip install --upgrade fastapi==0.90.1
+!pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 torchtext==0.14.1 torchdata==0.5.1 --extra-index-url https://download.pytorch.org/whl/cu116 -U
+!git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui /contest/drive/Mydrive/stable-diffusion-webui
+!git clone https://github.com/nolanaatama/sd-webui-tunnels /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-tunnels
+!git clone https://github.com/nolanaatama/sd-1click-colab.git /contest/extension/sd-1click-colab
+!git clone https://github.com/Mikubill/sd-webui-controlnet /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet
+!git clone https://github.com/sigmalpike/stable-diffusion-unfiltered.git /contest/extension/unfiltered
+# Model Code
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/models/Stable-diffusion/dreamshaper4.safetensors https://huggingface.co/Lykon/DreamShaper/resolve/main/DreamShaper_4BakedVae.safetensors
+# ControlNet
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/control_canny.safetensors https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/control_depth.safetensors https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/control_hed-fp16.safetensors https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/control_normal-fp16.safetensors https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/t2iadapter_canny_sd14v1.pth https://huggingface.co/TencentARC/T2I-Adapter/resolve/main/models/t2iadapter_canny_sd14v1.pth
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/t2iadapter_color_sd14v1.pth https://huggingface.co/TencentARC/T2I-Adapter/resolve/main/models/t2iadapter_color_sd14v1.pth
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/t2iadapter_depth_sd14v1.pth https://huggingface.co/TencentARC/T2I-Adapter/resolve/main/models/t2iadapter_depth_sd14v1.pth
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/t2iadapter_keypose_sd14v1.pth https://huggingface.co/TencentARC/T2I-Adapter/resolve/main/models/t2iadapter_keypose_sd14v1.pth
+!curl -Lo /content/drive/Mydrive/stable-diffusion-webui/extensions/sd-webui-controlnet/models/t2iadapter_style_sd14v1.pth https://huggingface.co/TencentARC/T2I-Adapter/resolve/main/models/t2iadapter_style_sd14v1.pth
+import shutil
+shutil.rmtree('/content/drive/Mydrive/stable-diffusion-webui/embeddings')
+%cd /content/drive/MyDrive/stable-diffusion-webui
+!git checkout 0cc0ee1
+!git clone https://huggingface.co/nolanaatama/embeddings
+%cd /content/drive/Mydrive/stable-diffusion-webui/models
+!git clone https://huggingface.co/nolanaatama/ESRGAN
+%cd /content/drive/Mydrive/stable-diffusion-webui
+# Web UI tunnel
+!COMMANDLINE_ARGS="--share --disable-safe-unpickle --no-half-vae --xformers --reinstall-xformers --enable-insecure-extension- --gradio-queue --remotemoe" REQS_FILE="requirements.txt" python launch.py
+# If remotemoe failed to start, change '--remotemoe' to '--cloudflared' on the COMMANDLINE_ARGS line above to use cloudflare tunnel
+
+0.05:10,0.02:20,0.01:60,0.005:100,0.002:500,0.001:1000,0.0005

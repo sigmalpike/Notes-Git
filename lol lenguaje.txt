@@ -1,0 +1,21 @@
+" --locale=xx_XX"
+
+Reemplaza la xx_XX con los de abajo
+Čeština cs_CZ
+Deutsch de_DE
+English en_US
+English en_GB
+English en_AU
+Español es_ES
+Español es_MX
+Français fr_FR
+Italiano it_ITf
+Coreano ko_KR
+Magyar hu_HU
+Polski pl_PL
+Português pt_BR
+Română ro_RO
+Türkçe tr_TR
+Ελληνικά el_GR
+Русский ru_RU
+日本語 ja_JP

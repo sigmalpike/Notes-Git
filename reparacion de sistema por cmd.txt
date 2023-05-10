@@ -1,0 +1,116 @@
+sfc /scannow
+"repara ddls"
+
+"problema del teclado"
+regedit
+Equipo\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt
+START = 1
+
+defrag
+
+Defrag <Volúmenes> <Operaciones> [<Opciones>]
+
+Volúmenes:
+  /C | /AllVolumes      En cada volumen ejecutar solo las operaciones preferidas de
+                        la lista especificada de operaciones.
+  /E | /VolumesExcept <rutas de acceso de volumen>
+                        Realizar todas las operaciones proporcionadas en cada volumen excepto
+                        los especificados. Si la lista de excepciones está vacía, este comando
+                        se comporta como /AllVolumes.
+  rutas de acceso de volumen          Especifica la letra de unidad seguida de dos puntos, punto de montaje
+                        o nombre de volumen. Se puede especificar más de un volumen.  Ejecuta
+                        todas las operaciones proporcionadas en cada volumen especificado.
+
+Operaciones:
+  /A | /Analyze         Realiza análisis.
+  /B | /BootOptimize    Realiza una optimización de arranque para aumentar el rendimiento del arranque.
+  /D | /Defrag          Realiza la desfragmentación tradicional (este es el valor predeterminado). En un volumen en capas
+                        solo se lleva a cabo la desfragmentación tradicional en el nivel de
+                        capacidad.
+  /G | /TierOptimize    En volúmenes en capas, optimiza archivos para que residan en el nivel
+                        de almacenamiento adecuado.
+  /K | /SlabConsolidate En volúmenes con aprovisionamiento fino, realiza la consolidación de bloques para
+                        aumentar la eficacia del uso de bloques.
+  /L | /Retrim          En volúmenes con aprovisionamiento fino, vuelve a optimizar para liberar bloques
+                        libres. En SSD, vuelve a optimizar para mejorar el rendimiento de escritura.
+  /O | /Optimize        Realiza la optimización correspondiente para cada tipo de medios.
+  /T | /TrackProgress   Realiza un seguimiento del progreso de una operación en ejecución para un volumen determinado. Una
+                        instancia puede mostrar el progreso solo para un volumen único. Para ver el
+                        progreso de otro volumen, inicia otra instancia.
+  /U | /PrintProgress   Imprime el progreso de la operación en pantalla.
+  /V | /Verbose         Imprime la salida detallada, incluidas las estadísticas de fragmentación.
+  /X | /FreespaceConsolidate
+                        Realiza la consolidación de espacio disponible, desplaza el espacio disponible hacia el
+                        final del volumen (incluso en volúmenes con aprovisionamiento fino). En
+                        la consolidación de volúmenes en capas solo se realiza en el nivel de
+                        capacidad.
+
+Opciones:
+  /H | /NormalPriority  Ejecuta la operación con una prioridad normal (el valor predeterminado es una prioridad baja).
+  /I | /MaxRuntime n    Disponible solo con TierOptimize. La optimización de capas se
+                        ejecutaría durante un máximo de n segundos en cada volumen.
+       /LayoutFile <ruta de acceso del archivo>
+                        Disponible solo con BootOptimize. Este archivo contiene la lista
+                        de archivos que se optimizarán. La ubicación predeterminada es
+                        %windir%\Prefetch\layout.ini.
+  /M | /MultiThread [n] Ejecuta la operación en cada volumen en paralelo en segundo plano.
+                        Para TierOptimize, como máximo, n subprocesos optimizan los niveles de almacenamiento
+                        en paralelo. El valor predeterminado de n es 8. Todas las demás optimizaciones
+                        omiten n.
+       /OnlyPreferred   Cuando se especifican los volúmenes explícitamente, "defrag" realiza todas
+                        las operaciones proporcionadas en cada volumen especificado.  Este modificador
+                        permite que "defrag" ejecute solo las operaciones preferidas, desde la
+                        lista suministrada de operaciones, en cada volumen especificado.
+
+Ejemplos:
+  Defrag C: /U /V
+  Defrag C: D: /TierOptimize /MultiThread
+  Defrag C:\mountpoint /Analyze /U
+  Defrag /C /H /V
+
+
+____
+
+
+cleanmgr
+
+"libera espacio"
+
+CHKDSK /f/r/x/i/b/offlinescanandfix d:
+
+CHKDSK
+
+"chequea el disco"
+
+
+DISM /online /cleanup-image /scanHealth
+
+"integridad del registro"
+
+
+
+RED 
+
+
+ping (host)
+
+ipconfig
+
+tracert
+Permite conocer los paquetes que vienen desde un host (punto de red). También se obtiene una estadística del RTT o latencia de red de esos paquetes, ofreciendo una estimación de la distancia a la que están los extremos de la comunicación. 
+
+pathping
+Combina la utilidad de ping y tracert. Es más informativo, por lo que tarda más tiempo para ejecutar. Después de enviar los paquetes a un destino determinado, se analiza la ruta tomada y se calcula la pérdida de paquetes y proporciona detalles entre dos host.
+
+getmac
+Obtiene la mac del equipo donde se ejecuta. La dirección MAC es un identificador de 48 bits determinado y configurado por el IEEE y el fabricante (24 bits cada uno). Conocida también como dirección física es única para cada dispositivo.
+
+nslookup
+Se emplea para conocer si el DNS está resolviendo correctamente los nombres y las IPs. También nos permite averiguar la dirección IP detrás de un determinado nombre de dominio. Si deseas convertir una dirección IP en un nombre de dominio, sólo tienes que escribirlo en el navegador y ver a dónde conduce.
+
+netstat
+Comando potente que muestra estadísticas de la red y permite diagnósticos y análisis. Por defecto, muestra un listado de las conexiones activas de una computadora, tanto entrantes como salientes. Incluye el protocolo en uso, las tablas de ruteo, las estadísticas de las interfaces y el estado de la conexión.
+
+netsh
+Sinónimo de shell de red, permite modificar, administrar y diagnosticar la configuración de una red, con más detalle y potencia que los anteriores. Un comando avanzado que ofrece un montón de opciones utilizando sus modificadores y que como ejemplo, permite cambiar el DNS primario y secundario de un equipo.
+https://www.ionos.es/digitalguide/servidores/herramientas/netsh/
